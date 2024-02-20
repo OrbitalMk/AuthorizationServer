@@ -1,8 +1,5 @@
 package com.example.authserver.config;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
 import java.security.interfaces.RSAPrivateKey;
@@ -110,7 +107,7 @@ public class SecurityConfig {
 				.authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
 				.authorizationGrantType(AuthorizationGrantType.REFRESH_TOKEN)
 				.redirectUri("http://127.0.0.1:8082/login/oauth2/code/spring")
-				// .postLogoutRedirectUri("http://127.0.0.1:8080/")
+				.postLogoutRedirectUri("http://127.0.0.1:8082")
 				.scope(OidcScopes.OPENID)
                 .scope("message:read")
 				.clientSettings(ClientSettings.builder().requireAuthorizationConsent(true).build())
